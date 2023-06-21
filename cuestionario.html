@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--este es el estilo-->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" tyoe="text/css" href="footer.css">
+<!--este es el boostrap*-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.3/js/bootstrap.min.js"></script>
+<!--estos son los iconos de redes sociales-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link ref=" https://fonts.cdnfonts.com/css/stencil-pixel-7 " rel="hoja de estilo">
+                
+                
+ 
+    
+                
+<title>Pagina Personal</title>
+</head>
+<body>
+<!--esta linea es para la barra de los links-->
+<div style="margin:24px;">
+    <nav class="navbar navbar-light" style="background-color: #e0e0e0;">
+       <div class="container">
+         <a class="navbar-brand" href="inicio.html">Inicio</a> 
+         <ul class="nav navbar-nav">
+           <li class="active">
+            <a href="Perfil.html">Perfil</a>
+           </li>
+           <li>
+           <a href="index.html">Calculadora Fisica</a>
+        </li>
+        <li>
+            <a href="index3.html">Calculadora</a>
+        </li>
+           <li>
+               <a href="Resultado3.html">Resultado</a>    
+           </li>
+
+           <li>
+               <a href="apimivies.html">Peliculas</a>
+           </li>    
+          <li class="active">
+            <a href="cuestionario.html">Cuestionario</a>
+          </li>
+          <li>
+            <a href="pedido.html">Pedido</a>
+          </li>
+          </ul>
+       </div>
+     </nav>
+     </div>
+     <style>
+   body{
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 0;
+   }
+   .quiz-container{
+    background-color: rgb(151, 191, 214);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(60, 60, 100);
+    width: 500px;
+    overflow: hidden;
+   }
+   .quiz-header{
+    padding: 4rem;
+
+   }
+   h2{
+    padding: 1rem;
+    text-align: center;
+    margin: 0;
+   }
+   ul{
+    list-style-type: none;
+    padding: 0;
+   }
+   ul li{
+    font-size: 16px;
+    margin: 10px 0;
+
+   }
+   ul li label{
+    cursor: pointer;
+   }
+   button{
+    background-color: rgb(10, 10, 44);
+    color:rgb(223, 211, 211);
+    border: none;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 15px;
+   }
+   button:hover{
+    background-color: rgb(119, 119, 156);
+   }
+   button:focus{
+    outline: none;
+    background-color: rgb(49, 49, 61);
+   }
+
+</style>
+            <h1 class="titulo">BIENVENIDOS</h1>
+        </div>
+         </div>
+         <div class="container">
+            <div class="quiz-container" id="quiz">
+                <div class="quiz-header">
+                    <div class="image-container">
+                        <img src="en-.jpg" alt="imagen" id="question-image" style="width: 250px; height: auto;"> 
+                
+                    <h2 id="question">Question Text</h2>
+                </div>
+                <h2 id="question">quien es mi bias de enhypen?</h2>
+                <ul>
+                    <li>
+                        <input type="radio" id="answer" id="a" class="answer">
+                        <label for="a" id="a_text">sunoo</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="answer" id="b" class="answer">
+                        <label for="b" id="b_text">sunghoon</label>
+                    </li><li>
+                        <input type="radio" id="answer" id="c" class="answer">
+                        <label for="c" id="c_text">Jake</label>
+                    </li><li>
+                        <input type="radio" id="answer" id="d" class="answer">
+                        <label for="d" id="d_text">Ni-ki</label>
+                    </li>
+                </ul>
+            </div>
+<button id="submit">Siguiente</button>
+            </div>
+    
+         <script>
+            //este es un arreglo con las preguntas
+            const quizData =[
+                {
+                    question: "Quien es mi bias de Enhypen?",
+                    image: "quiz1.jpg",
+                    a: "Sunghoon",
+                    b:"Jay",
+                    c:"Jake",
+                    d:"Sunoo",
+                    correct:"c",
+
+                },
+                {
+                    question: "Cual es mi color favorito basado en mi feed de instagram?",
+                    image: "quiz2.jpg",
+                    a: "blanco",
+                    b:"negro",
+                    c:"gris",
+                    d:"azul",
+                    correct:"d",
+
+                },
+
+            ];
+            const quiz= document.getElementById('quiz');
+            const answerEls = document.querySelectorAll('.answer');
+            const questionEl= document.getElementById('question');
+            const a_text= document.getElementById('a_text');
+            const b_text= document.getElementById('b_text');
+            const c_text= document.getElementById('c_text');
+            const d_text= document.getElementById('d_text');
+            const submitBtn = document.getElementById('submit');
+
+            let currentQuiz = 0;
+            let score= 0;
+
+            loadQuiz();
+
+            function loadQuiz() {
+                deselectAnswer();
+                const currentQuizData = quizData[currentQuiz];
+                cuestionEL.innetText = currentQuizData.question;
+                a_text.innetText = currentQuizData.a;
+                b_text.innetText = currentQuizData.b;
+                c_text.innetText = currentQuizData.c;
+                d_text.innetText = currentQuizData.d;
+
+                const questionImage = document.getElementById("question-image");
+                questionImage.src = currentQuizData,image;
+
+            }
+
+            function deselectAnswers() {
+                answerEls.forEach(anserEl => answerEl.checked = false);
+            }
+
+            function getSelected() {
+                let answer;
+
+                answerEls.forEach(answerEl => {
+                    if (answerEl.checked) {
+                        answer = answerEl.id;
+                    }
+                });
+                return answer;
+            }
+            submitBtn.addEventListener('click', () =>{
+                const answer = getSelected();
+
+                if(answer){
+                    if(answer === quizData[currentQuiz].correct){
+                        score++;
+                    }
+                    currentQuiz++;
+                    if(currentQuiz < quizData.length){
+                        loadQuiz()
+                    }else {
+                        quiz.innerHTML = `
+                        <h2>Contestaste ${score}/${quizData.length} de preguntas correctamente</h2>
+                        <button onclick="location.reload ()">Reload</button>
+                    `
+                    }
+                }
+            })
+
+         </script>
+
+         
+         <!--aqui sigue el footer-->
+         <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section about">
+                        <h2>Contactame</h2>
+                        <p>Si estas interesado en contactarme,puedes hacerlo a traves de cualquiera de las siguientes redes sociales</p>
+                        <div class="contact-links">
+                            <a href="https://www.facebook.com/miperfil" target="blank"><i class ="fab fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/miperfil" target="blank"><i class ="fab fa-instagram"></i></a>
+                            <a href="https://www.twitter.com/miperfil" target="blank"><i class ="fab fa-twitter"></i></a>
+                            <a href="https://www.snapchat.com/miperfil" target="blank"><i class ="fab fa-snapchat"></i></a>
+                            <a href="https://www.youtube.com/miperfil" target="blank"><i class ="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    <script type="text/javascript">
+            //con lo siguiente hare que los links de las paginas se abran mediante Javascript en una pagina nueva
+    
+            const socialnetworks = document.querySelectorAll('.contac-links a');
+            socialnetworks.forEach(link =>{
+                link.addEventListener('click', e =>{
+                    e.preventDefault();
+                    window.open(link.href, '_blank')
+                });
+            });
+    </script>
+    </footer>
+</body>
+</html>
